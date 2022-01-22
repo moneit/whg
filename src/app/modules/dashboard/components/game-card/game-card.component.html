@@ -1,0 +1,16 @@
+<div class="box">
+  <div *ngIf="newRibbon" class="ribbon ribbon-top-right new"><span>New</span></div>
+  <div *ngIf="topRibbon" class="ribbon ribbon-top-left top"><span>Top</span></div>
+  <div class="overlay">
+    <div class="hover-back">
+      <div>
+        <p>{{ game?.name }}</p>
+        <button>Play</button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="game?.jackpot" class="jackpot">
+    ${{ game?.jackpot }}
+  </div>
+  <img [src]="game?.image" alt="game" />
+</div>

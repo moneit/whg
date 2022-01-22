@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="board">
+    <div class="tab-nav-bar">
+      <button *ngFor="let tab of tabs" [ngClass]="{ active: tab.active }" (click)="navigate(tab.category)">
+        {{ tab.title }}
+      </button>
+    </div>
+    <div class="tab-content">
+      <div class="card-container">
+        <div *ngFor="let game of games" class="card-item-wrapper">
+          <app-game-card [game]="game" [activeCategory]="activeCategory"></app-game-card>
+        </div>
+      </div>
+      <div *ngIf="!games || games?.length === 0" class="no-games">
+        No Games
+      </div>
+    </div>
+  </div>
+</div>

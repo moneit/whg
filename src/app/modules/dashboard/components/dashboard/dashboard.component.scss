@@ -1,0 +1,95 @@
+@import "./src/styles/variables";
+
+.container {
+  margin: 0;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+.board {
+  box-shadow: 0 0 10px 5px rgb(0, 0, 0, 0.1);
+  .tab-nav-bar {
+    background: $dark;
+    display: flex;
+    overflow: auto;
+
+    button {
+      background: transparent;
+      color: $gray;
+      border: none;
+      padding: 1rem;
+      white-space: nowrap;
+      min-width: 100px;
+      width: 10%;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:hover {
+        cursor: pointer;
+        &:not(.active) {
+          color: $primary;
+        }
+      }
+
+      &.active {
+        background: $primary;
+      }
+    }
+  }
+
+  .tab-content {
+    max-height: calc(100vh - 100px);
+    width: 100%;
+    height: 90vh;
+    background: white;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+
+    .no-games {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      font-size: 80px;
+      color: gray;
+      font-weight: 800;
+      text-align: center;
+
+      @media only screen and (max-width: 965px) {
+        font-size: 60px;
+      }
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: auto auto auto auto auto;
+      padding: 30px 10px;
+      grid-gap: 10px;
+      max-width: 1440px;
+
+      .card-item-wrapper {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 10px;
+        font-size: 30px;
+        text-align: center;
+      }
+
+      @media only screen and (max-width: 1440px) {
+        max-width: 960px;
+        grid-template-columns: auto auto auto;
+      }
+
+      @media only screen and (max-width: 965px) {
+        max-width: 546px;
+        grid-template-columns: auto auto;
+      }
+
+      @media only screen and (max-width: 600px) {
+        max-width: 546px;
+        grid-template-columns: auto;
+      }
+    }
+  }
+}
